@@ -102,7 +102,7 @@ int play(Point *cPoint){
     if(key==KEY_RESTART) return KEY_RESTART;
     getIndex(key,*cPoint,&mPoint);
     change(cPoint,mPoint);
-    count++;
+    count+=1;
     display(key);  
     return key; 
 }

@@ -18,12 +18,21 @@
 int *pz;
 
 int main(int argc, char ** argv){
-    //FILE *fp;
+    FILE *fp;
     Point cPoint;
-    //char date[20];
-    //char time[20];
+    char Date[20];
+    char Time[20];
     int key=0;
     srand(time(NULL));
+    fp = fopen("score.txt","r");
+    if(fp==NULL){
+        fclose(fp);
+        fp = fopen("score.txt","w");
+        fprintf(fp,"%10s %10s %10s %10s\n","Date","Time","Name","Score");
+        fprintf(fp,"===================================================\n");
+    }
+    fclose(fp);
+    fp = fopen("score.txt","a");
     pz = (int *)malloc(sizeof(int)*9);
     if(pz==NULL){
         free(pz);
@@ -37,6 +46,9 @@ int main(int argc, char ** argv){
         if(check()||count>maxcount){
             if(check()){
                 printf("FINISH :)\n");
+                _strtime(Time);
+                _strdate(Date);
+                fprintf(fp,"%10s %10s %10s %10d\n",Date, Time, name, count);
             }
             if(count>maxcount){
                 printf("COUNT OVER :(\n");
@@ -56,6 +68,9 @@ int main(int argc, char ** argv){
         }
     }
     
+    fclose(fp);
     free(pz);
     pz = NULL;
+
+    return 0;
 }
