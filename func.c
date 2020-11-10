@@ -1,11 +1,24 @@
 #include "pz.h"
 
-extern *pz;
+extern int *pz;
 void init(Point *cPoint){
     int i,k;
+#ifdef __DEBUG__
+    int test[9] ={1,2,3,4,5,6,7,0,8};
+#endif
     char arrow[10];
+    count = 0;
+    system("cls");
+    printf("ENTER NAME: ");
+    scanf(" %s",name);
+    system("cls");
+    printf("SET MAXCOUNT: ");
+    scanf("%d",&maxcount);
     for(i=0;i<9;i++){
         pz[i] = rand()%9;
+#ifdef __DEBUG__
+        pz[i] = test[i];
+#endif
         for(k=0;k<i;k++){
             if(pz[k]==pz[i]){
                 i--;
@@ -19,8 +32,9 @@ void init(Point *cPoint){
 }
 void display(int key){
     int i;
-    char arrow[20];
-    for(i=0;i<0;i++){
+    char arrow[10];
+    system("cls");
+    for(i=0;i<9;i++){
         if(pz[i]==0){
             printf("%3c",'*');
         }
@@ -36,10 +50,10 @@ void display(int key){
             strcpy(arrow,"UP");
             break;
         case KEY_DOWN:
-            strcpy(arrow, "DOWN");
+            strcpy(arrow,"DOWN");
             break;
         case KEY_LEFT:
-            strcpy(arrow, "LEFT");
+            strcpy(arrow,"LEFT");
             break;
         case KEY_RIGHT:
             strcpy(arrow,"RIGHT");

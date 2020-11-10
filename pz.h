@@ -5,11 +5,15 @@ typedef struct _Point{
     int point;
 }Point;
 
-#define KEY_UP 72
-#define KEY_DOWN 80
-#define KEY_LEFT 75
-#define KEY_RIGHT 77
-#define KEY_STOP 'q'
+#if 1
+#define __DEBUG__
+#endif
+
+#define KEY_UP      72
+#define KEY_DOWN    80
+#define KEY_LEFT    75
+#define KEY_RIGHT   77
+#define KEY_STOP    'q'
 #define KEY_RESTART 'r'
 
 int count, maxcount;
