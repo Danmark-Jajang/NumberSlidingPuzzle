@@ -50,26 +50,27 @@ int main(int argc, char ** argv){
                 _strdate(Date);
                 fprintf(fp,"%10s %10s %10s %10d\n",Date, Time, name, count);
             }
-            if(count>maxcount){
+            else if(count>maxcount){
                 printf("COUNT OVER :(\n");
             }
             printf("CONTINUE?(Y/N): ");
             scanf(" %c",&key);
-            if(key=='y'||key=='Y'){
+            if(key=='y'|| key=='Y'){
                 init(&cPoint);
-                display(0);
+                display(key);
             }
             else break;
         }
         if(key==KEY_STOP) break;
         if(key==KEY_RESTART){
             init(&cPoint);
-            display(0);
+            display(key);
         }
     }
     
     fclose(fp);
     free(pz);
+    fp=NULL;
     pz = NULL;
 
     return 0;

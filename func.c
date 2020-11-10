@@ -61,7 +61,7 @@ void display(int key){
         default:
             break;
     }
-    printf("COUNT: %d\n",count);
+    printf("COUNT: %d\n",count/2);
     printf("INPUT: %s\n",arrow);
 }
 int getKey(){
@@ -102,7 +102,7 @@ int play(Point *cPoint){
     if(key==KEY_RESTART) return KEY_RESTART;
     getIndex(key,*cPoint,&mPoint);
     change(cPoint,mPoint);
-    count+=1;
+    ++count;
     display(key);  
     return key; 
 }
